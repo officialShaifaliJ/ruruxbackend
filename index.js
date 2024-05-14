@@ -72,7 +72,7 @@ app.get("/allstudents/list", async (req, res) => {
 app.get("/profile/:studentId", async (req, res) => {
   const { studentId } = req.params;
   try {
-    const student = await StudentModel.findOne(studentId);
+    const student = await StudentModel.findById(studentId);
     res.status(200).send(student);
   } catch (err) {
     res.status(400).send({ message: err.message });
